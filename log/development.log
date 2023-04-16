@@ -1,0 +1,646 @@
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(997451463362994255)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTweets (20201223122400)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" bigserial primary key, "body" text, "likes_count" integer DEFAULT 0, "retweets_count" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201223122400"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-04-16 02:08:29.455916"], ["updated_at", "2023-04-16 02:08:29.455916"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(997451463362994255)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-04-15 23:08:42 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 3.9ms | Allocations: 3936)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 6609)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 42078)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 1.9ms | Allocations: 49385)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/" for ::1 at 2023-04-15 23:08:42 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 2.2ms | Allocations: 590)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1592)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 9807)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 10185)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/" for ::1 at 2023-04-15 23:08:52 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 4.3ms | Allocations: 2291)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4302)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 13667)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.4ms | Allocations: 20151)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/" for ::1 at 2023-04-15 23:09:40 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 4.3ms | Allocations: 2291)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 4302)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 14024)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 2.3ms | Allocations: 20353)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/" for ::1 at 2023-04-15 23:09:42 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 2.3ms | Allocations: 590)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1593)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 9824)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms | Allocations: 10202)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/" for ::1 at 2023-04-15 23:09:42 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.6ms | Allocations: 479)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 10)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1389)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 9411)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.3ms | Allocations: 9683)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/" for ::1 at 2023-04-15 23:10:19 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 3.3ms | Allocations: 2291)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 4302)
+  Rendered layout layouts/application.html.erb (Duration: 52.2ms | Allocations: 20998)
+Completed 200 OK in 61ms (Views: 53.1ms | ActiveRecord: 2.5ms | Allocations: 27246)
+
+
+Started GET "/cable" for ::1 at 2023-04-15 23:10:20 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:10:20 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/" for ::1 at 2023-04-15 23:10:50 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 4.9ms | Allocations: 2276)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 4380)
+  Rendered layout layouts/application.html.erb (Duration: 49.7ms | Allocations: 19708)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 2.1ms | Allocations: 25923)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/tweets" for ::1 at 2023-04-15 23:10:55 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.4ms | Allocations: 575)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1670)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 9981)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms | Allocations: 10359)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started GET "/tweets" for ::1 at 2023-04-15 23:10:55 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.1ms | Allocations: 467)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 10)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1464)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 9493)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 9765)
+
+
+  
+ActionView::Template::Error (No such file or directory @ dir_initialize - /home/pedro/workspace/hotwire-twitter-clone/app/assets/javascripts/libraries):
+  
+app/assets/javascripts/importmap.json.erb:3:in `call'
+Started PUT "/__web_console/repl_sessions/071ee38197cf76040d5aa29b763e6429" for ::1 at 2023-04-15 23:11:08 -0300
+Started GET "/cable" for ::1 at 2023-04-15 23:11:17 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:11:17 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription rejection
+Started GET "/cable" for ::1 at 2023-04-15 23:12:43 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:12:43 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/" for ::1 at 2023-04-15 23:12:44 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 5.4ms | Allocations: 2276)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 4384)
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 24436)
+Completed 200 OK in 63ms (Views: 47.9ms | ActiveRecord: 2.3ms | Allocations: 30707)
+
+
+Started GET "/cable" for ::1 at 2023-04-15 23:12:44 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:12:44 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for ::1 at 2023-04-15 23:16:13 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:16:13 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from tweets
+Started GET "/" for ::1 at 2023-04-15 23:16:15 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 5.3ms | Allocations: 2276)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 4153)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 16824)
+Completed 200 OK in 54ms (Views: 38.3ms | ActiveRecord: 2.4ms | Allocations: 23096)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2023-04-15 23:16:15 -0300
+Turbo::StreamsChannel stopped streaming from tweets
+Started GET "/cable" for ::1 at 2023-04-15 23:16:15 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:16:15 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from tweets
+Started POST "/tweets" for ::1 at 2023-04-15 23:16:17 -0300
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>"sfasfafs"}, "commit"=>"Create Tweet"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "sfasfafs"], ["created_at", "2023-04-16 02:16:17.140968"], ["updated_at", "2023-04-16 02:16:17.140968"]]
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  Rendered tweets/_tweet.html.erb (Duration: 1.6ms | Allocations: 456)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_1\">\n  <div class=\"card card-body\">\n    <div>sfasfafs</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/1/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"TSlQiEySJeoBi_NGEpCRhRWhJsHt39mTPmGs0BS7ZXCQ7yCmXaeu10EoqfGK3RZ8xabf2RYZo5Z_JYh8hD6sjQ\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/1/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"tZZf3K3UVY5XQqzVyIa7UOVeMR8ZwA6RUJwn6XLm_5bppDUjNxezAPmOyRmRryVaY7kgmISAmrc59Nki6ja4ow\" /></form>\n\n      <a href=\"/tweets/1/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 19ms (ActiveRecord: 7.1ms | Allocations: 4400)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_1\">\n  <div class=\"card card-body\">\n    <div>sfasfafs</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/1/like\"><input type=\"submit\" value=\"Likes (0)\" /... (via streamed from tweets)
+Started GET "/tweets" for ::1 at 2023-04-15 23:16:17 -0300
+Processing by TweetsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.0ms | Allocations: 475)
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of tweets/_tweet.html.erb [1 times] (Duration: 0.8ms | Allocations: 437)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2226)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 7662)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 8069)
+
+
+Started POST "/tweets/1/like" for ::1 at 2023-04-15 23:16:18 -0300
+Processing by LikesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"1"}
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (4.8ms)[0m  [1m[33mUPDATE "tweets" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["likes_count", 1], ["id", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/1
+Completed 302 Found in 13ms (ActiveRecord: 5.8ms | Allocations: 2265)
+
+
+Started GET "/tweets/1" for ::1 at 2023-04-15 23:16:18 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 0.8ms | Allocations: 258)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1089)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 6514)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.3ms | Allocations: 7364)
+
+
+Started POST "/tweets/1/like" for ::1 at 2023-04-15 23:16:19 -0300
+Processing by LikesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"1"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (2.9ms)[0m  [1m[33mUPDATE "tweets" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["likes_count", 1], ["id", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/1
+Completed 302 Found in 5ms (ActiveRecord: 3.1ms | Allocations: 1352)
+
+
+Started GET "/tweets/1" for ::1 at 2023-04-15 23:16:19 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 0.3ms | Allocations: 249)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 667)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 6093)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.1ms | Allocations: 6812)
+
+
+Started POST "/tweets/1/like" for ::1 at 2023-04-15 23:16:19 -0300
+Processing by LikesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"1"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (4.6ms)[0m  [1m[33mUPDATE "tweets" SET "likes_count" = COALESCE("likes_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["likes_count", 1], ["id", 1]]
+  ↳ app/controllers/likes_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/1
+Completed 302 Found in 10ms (ActiveRecord: 5.1ms | Allocations: 1347)
+
+
+Started GET "/tweets/1" for ::1 at 2023-04-15 23:16:19 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 1.1ms | Allocations: 249)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 667)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 6088)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 6807)
+
+
+Started POST "/tweets/1/retweet" for ::1 at 2023-04-15 23:16:20 -0300
+Processing by RetweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"1"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/retweets_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (4.5ms)[0m  [1m[33mUPDATE "tweets" SET "retweets_count" = COALESCE("retweets_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["retweets_count", 1], ["id", 1]]
+  ↳ app/controllers/retweets_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/1
+Completed 302 Found in 10ms (ActiveRecord: 4.8ms | Allocations: 1404)
+
+
+Started GET "/tweets/1" for ::1 at 2023-04-15 23:16:20 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 0.8ms | Allocations: 249)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 653)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 6076)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 6795)
+
+
+Started POST "/tweets/1/retweet" for ::1 at 2023-04-15 23:16:20 -0300
+Processing by RetweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"1"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/retweets_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (4.5ms)[0m  [1m[33mUPDATE "tweets" SET "retweets_count" = COALESCE("retweets_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["retweets_count", 1], ["id", 1]]
+  ↳ app/controllers/retweets_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/1
+Completed 302 Found in 9ms (ActiveRecord: 4.9ms | Allocations: 1374)
+
+
+Started GET "/tweets/1" for ::1 at 2023-04-15 23:16:20 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 0.7ms | Allocations: 249)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 655)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 6077)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 6796)
+
+
+Started POST "/tweets" for ::1 at 2023-04-15 23:16:22 -0300
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>"asfasf"}, "commit"=>"Create Tweet"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTweet Create (0.5ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "asfasf"], ["created_at", "2023-04-16 02:16:22.164416"], ["updated_at", "2023-04-16 02:16:22.164416"]]
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  Rendered tweets/_tweet.html.erb (Duration: 0.9ms | Allocations: 250)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_2\">\n  <div class=\"card card-body\">\n    <div>asfasf</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/2/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"6Ff-W5_2npCetY4QzP2RzuNu_9P1BJGkajcKQvfO6z3JhpB67zE0lthziccz05EpdryYHsi3nj6sVUEn9Lb1OA\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/2/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"zdVaSIWATS4U9Uye08BTcaR7Z_7tZt5hKKtx6liPHYGfe6jY1BTppHQHxa7Xq14ysu858vGQeM1bIsS90KxYuQ\" /></form>\n\n      <a href=\"/tweets/2/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 14ms (ActiveRecord: 5.1ms | Allocations: 2782)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_2\">\n  <div class=\"card card-body\">\n    <div>asfasf</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/2/like\"><input type=\"submit\" value=\"Likes (0)\" /><... (via streamed from tweets)
+Started GET "/tweets" for ::1 at 2023-04-15 23:16:22 -0300
+Processing by TweetsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.9ms | Allocations: 469)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of tweets/_tweet.html.erb [2 times] (Duration: 0.9ms | Allocations: 486)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2029)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 7457)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 7751)
+
+
+Started GET "/cable" for ::1 at 2023-04-15 23:16:35 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:16:35 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "TESTEEEEEEEEEEEE"], ["created_at", "2023-04-16 02:16:47.696212"], ["updated_at", "2023-04-16 02:16:47.696212"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 0.9ms | Allocations: 618)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_3\">\n  <div class=\"card card-body\">\n    <div>TESTEEEEEEEEEEEE</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/3/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"rABu5nAc_Eb7zHZuEyeGEuMsmlT71nOw9Jp2UBF7tU3bZ1l_YBdS0eWTTBvmB6YVzQU0c3qbSvVX2xyt0TTqDA\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/3/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"xXrrV59E3BaF7gP_ifsNdTSFhEDy7VHZEGPrLKxCO7nCPSEmHmaTFe7CZglNV0JsyqvW1s5AkCFtfIPb6kljFA\" /></form>\n\n      <a href=\"/tweets/3/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_3\">\n  <div class=\"card card-body\">\n    <div>TESTEEEEEEEEEEEE</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/3/like\"><input type=\"submit\" value=\"Likes... (via streamed from tweets)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "DEU BOM CARALHO"], ["created_at", "2023-04-16 02:16:56.282770"], ["updated_at", "2023-04-16 02:16:56.282770"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 1.0ms | Allocations: 240)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_4\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/4/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"rkzpP2rgBAYdgogp76dvqbQUFFwQ_o8PUmjmsHekJU5N6TtEtIKGxvry3EzAPRNlAj9YijHU5ZqF2ewVopGt9w\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/4/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"bTUbvR3u22mWU-S1wzxXtMjP2WcJ-so4J2w0oyHop_tPWibUkM9Avy_hiURXKFovpX61T2CbslB3HmBospUy2A\" /></form>\n\n      <a href=\"/tweets/4/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_4\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/4/like\"><input type=\"submit\" value=\"Likes ... (via streamed from tweets)
+  [1m[36mTweet Load (0.9ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"remove\" target=\"tweet_1\"></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"remove\" target=\"tweet_1\"></turbo-stream>" (via streamed from tweets)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"remove\" target=\"tweet_2\"></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"remove\" target=\"tweet_2\"></turbo-stream>" (via streamed from tweets)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Destroy (0.5ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"remove\" target=\"tweet_3\"></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"remove\" target=\"tweet_3\"></turbo-stream>" (via streamed from tweets)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"remove\" target=\"tweet_4\"></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"remove\" target=\"tweet_4\"></turbo-stream>" (via streamed from tweets)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "DEU BOM CARALHO"], ["created_at", "2023-04-16 02:17:08.138805"], ["updated_at", "2023-04-16 02:17:08.138805"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 0.9ms | Allocations: 240)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_5\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/5/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"i3nVJuEVMMgDrts286U6RLVmTokCfSS9ZFXSM6MWNdG3ld1PO9W69yzhLJzH6ehiabVFU4eo3kbgHOHVGb6yTA\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/5/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"9bExdKdL5cAvOthlisi39jcsPxgiPNIA2-J7slN-d2oGeMm07eB2mh8C646GBZivSwLxpqSg2Mdvlkt9PmCOQw\" /></form>\n\n      <a href=\"/tweets/5/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_5\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/5/like\"><input type=\"submit\" value=\"Likes ... (via streamed from tweets)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.7ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "DEU BOM CARALHO"], ["created_at", "2023-04-16 02:17:21.288282"], ["updated_at", "2023-04-16 02:17:21.288282"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 0.9ms | Allocations: 240)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_6\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/6/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"rK9OwkV4uEWjGFlQ9gNc_2JjfqwMNUmlvjyXkRHaAXIWO5oEk0PGiHD3FBK8PhqvfU6fLgU8347PjhIXFxCi2g\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/6/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"PRI5FJFX0dyzJURHI48Lv4teeMwCXUmRR0fFlvzu2_-X5mhugApRiDu5yDtnwtRO7Avw7Bnw4S4fK-MRUB7_UA\" /></form>\n\n      <a href=\"/tweets/6/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_6\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/6/like\"><input type=\"submit\" value=\"Likes ... (via streamed from tweets)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.7ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "DEU BOM CARALHO"], ["created_at", "2023-04-16 02:17:34.259869"], ["updated_at", "2023-04-16 02:17:34.259869"]]
+  [1m[36mTRANSACTION (49.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 0.8ms | Allocations: 240)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_7\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/7/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"k3Ob6WvIZk8GGKLAE9sUCQmqeF5AL_WZ4R0dB9nf8qrfRyjQy3HGOJ_v7b3sgDXI3jq0SigoBUVR3HwHfLox0A\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/7/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"O83q0j4BM6ljY3dQbkgt35PdwKR8M6MbOBJO819KtYxOfANch-CfJSi-qCvOwNgA39kMEbJdmZB-XVQK7R4n-g\" /></form>\n\n      <a href=\"/tweets/7/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_7\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/7/like\"><input type=\"submit\" value=\"Likes ... (via streamed from tweets)
+Started GET "/" for ::1 at 2023-04-15 23:17:39 -0300
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 1.2ms | Allocations: 467)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of tweets/_tweet.html.erb [3 times] (Duration: 0.7ms | Allocations: 724)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2319)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 7747)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 8047)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2023-04-15 23:17:39 -0300
+Turbo::StreamsChannel stopped streaming from tweets
+Started GET "/cable" for ::1 at 2023-04-15 23:17:39 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:17:39 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from tweets
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "DEU BOM CARALHO"], ["created_at", "2023-04-16 02:17:44.020745"], ["updated_at", "2023-04-16 02:17:44.020745"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 7.2ms | Allocations: 240)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_8\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/8/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"tlhrNkEdQzM7dToiI81vido3HFUia-yaqEaCu2-0Vw39hSR0ZQcRNvwHSNeFY-Z7j0OEm3K9K3DTI3Bl0Pdo4A\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/8/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"lisrpN1F4BAjWy1mxY2M5Iki9vIrNPJs7jsmRnCdiL5cJSgEVHa5Q9aPNwnRU0CHUEUoIkuwM1r6NozR7-Zgdw\" /></form>\n\n      <a href=\"/tweets/8/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_8\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/8/like\"><input type=\"submit\" value=\"Likes ... (via streamed from tweets)
+Started POST "/tweets/8/retweet" for ::1 at 2023-04-15 23:17:53 -0300
+Processing by RetweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"8"}
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/retweets_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (48.8ms)[0m  [1m[33mUPDATE "tweets" SET "retweets_count" = COALESCE("retweets_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["retweets_count", 1], ["id", 8]]
+  ↳ app/controllers/retweets_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/8
+Completed 302 Found in 55ms (ActiveRecord: 49.1ms | Allocations: 1378)
+
+
+Started GET "/tweets/8" for ::1 at 2023-04-15 23:17:53 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"8"}
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 0.4ms | Allocations: 249)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 651)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 6128)
+Completed 200 OK in 14ms (Views: 5.1ms | ActiveRecord: 0.2ms | Allocations: 6849)
+
+
+Started POST "/tweets/8/retweet" for ::1 at 2023-04-15 23:17:53 -0300
+Processing by RetweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet_id"=>"8"}
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/retweets_controller.rb:12:in `set_tweet'
+  [1m[36mTweet Update All (4.5ms)[0m  [1m[33mUPDATE "tweets" SET "retweets_count" = COALESCE("retweets_count", 0) + $1 WHERE "tweets"."id" = $2[0m  [["retweets_count", 1], ["id", 8]]
+  ↳ app/controllers/retweets_controller.rb:5:in `create'
+Redirected to http://localhost:3000/tweets/8
+Completed 302 Found in 10ms (ActiveRecord: 5.0ms | Allocations: 1363)
+
+
+Started GET "/tweets/8" for ::1 at 2023-04-15 23:17:53 -0300
+Processing by TweetsController#show as TURBO_STREAM
+  Parameters: {"id"=>"8"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:69:in `set_tweet'
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/show.html.erb within layouts/application
+  Rendered tweets/_tweet.html.erb (Duration: 0.6ms | Allocations: 249)
+  Rendered tweets/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 651)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 6073)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 6792)
+
+
+Started POST "/tweets" for ::1 at 2023-04-15 23:17:57 -0300
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>""}, "commit"=>"Create Tweet"}
+  Rendered tweets/_form.html.erb (Duration: 2.3ms | Allocations: 1477)
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 4719)
+
+
+Started POST "/tweets" for ::1 at 2023-04-15 23:18:04 -0300
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>""}, "commit"=>"Create Tweet"}
+  Rendered tweets/_form.html.erb (Duration: 1.2ms | Allocations: 1412)
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2540)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2023-04-15 23:18:19 -0300
+Turbo::StreamsChannel stopped streaming from tweets
+Finished "/cable/" [WebSocket] for ::1 at 2023-04-15 23:18:20 -0300
+Started GET "/" for ::1 at 2023-04-15 23:26:29 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 5.3ms | Allocations: 2340)
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of tweets/_tweet.html.erb [4 times] (Duration: 3.4ms | Allocations: 1174)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 5788)
+  Rendered layout layouts/application.html.erb (Duration: 41.3ms | Allocations: 18497)
+Completed 200 OK in 50ms (Views: 42.2ms | ActiveRecord: 2.2ms | Allocations: 24811)
+
+
+Started GET "/cable" for ::1 at 2023-04-15 23:26:29 -0300
+Started GET "/cable/" [WebSocket] for ::1 at 2023-04-15 23:26:29 -0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from tweets
+Started POST "/tweets" for ::1 at 2023-04-15 23:26:31 -0300
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>"asfsaf"}, "commit"=>"Create Tweet"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "asfsaf"], ["created_at", "2023-04-16 02:26:31.786724"], ["updated_at", "2023-04-16 02:26:31.786724"]]
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (47.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  Rendered tweets/_tweet.html.erb (Duration: 1.6ms | Allocations: 434)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_9\">\n  <div class=\"card card-body\">\n    <div>asfsaf</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/9/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"I-oeVQhRoZX3uEM3HhLExmRxXTlj0JSXuB-i-RbhLcgRdH0F5QV9ItBTZdUM_vMIl8nfex-azG5qe-n2ci32Pg\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/9/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"X9HNeQ6X2i2JW-cGwCMlCzZPR70_J5-5FVqusRV5Y3G7Ois4vVMU709uyGD72lMF27VV1_vZjq7yRbmd_GElzw\" /></form>\n\n      <a href=\"/tweets/9/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 61ms (ActiveRecord: 48.5ms | Allocations: 4274)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_9\">\n  <div class=\"card card-body\">\n    <div>asfsaf</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/9/like\"><input type=\"submit\" value=\"Likes (0)\" /><... (via streamed from tweets)
+Started GET "/tweets" for ::1 at 2023-04-15 23:26:31 -0300
+Processing by TweetsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 0.7ms | Allocations: 475)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of tweets/_tweet.html.erb [5 times] (Duration: 1.0ms | Allocations: 1205)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2923)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 8405)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 8812)
+
+
+Started POST "/tweets" for ::1 at 2023-04-15 23:26:33 -0300
+Processing by TweetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tweet"=>{"body"=>"fsaf"}, "commit"=>"Create Tweet"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "fsaf"], ["created_at", "2023-04-16 02:26:33.841992"], ["updated_at", "2023-04-16 02:26:33.841992"]]
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:31:in `block in create'
+  Rendered tweets/_tweet.html.erb (Duration: 1.4ms | Allocations: 240)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_10\">\n  <div class=\"card card-body\">\n    <div>fsaf</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/10/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"E0dzHKXrP-yo3E92h3EdUC07w-0ZuF4t4oVPmci8wJkGFtOBJQHBA4KlHw2Wnespg6EmFhuW6P6rMDftxpGsiw\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/10/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"5llMg5hIyvgFOGsa3oUjQQoElYXWqiQb9zvagY7TYz7td3FQ6k6WbMZURorTfn51D5boMHb_hazStHsQpLXzaA\" /></form>\n\n      <a href=\"/tweets/10/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 14ms (ActiveRecord: 3.9ms | Allocations: 2705)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_10\">\n  <div class=\"card card-body\">\n    <div>fsaf</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/10/like\"><input type=\"submit\" value=\"Likes (0)\" /><... (via streamed from tweets)
+Started GET "/tweets" for ::1 at 2023-04-15 23:26:33 -0300
+Processing by TweetsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tweets/index.html.erb within layouts/application
+  Rendered tweets/_form.html.erb (Duration: 0.8ms | Allocations: 467)
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/tweets/index.html.erb:12
+  Rendered collection of tweets/_tweet.html.erb [6 times] (Duration: 1.1ms | Allocations: 1438)
+  Rendered tweets/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2939)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 8372)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 8666)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("body", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["body", "DEU BOM CARALHO"], ["created_at", "2023-04-16 02:26:40.961049"], ["updated_at", "2023-04-16 02:26:40.961049"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendered tweets/_tweet.html.erb (Duration: 0.9ms | Allocations: 618)
+[ActionCable] Broadcasting to tweets: "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_11\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/11/like\"><input type=\"submit\" value=\"Likes (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"BAxdcewWV8-iziKOhBv3Kp0f5um92g7CGXSVZ0rWhHLoQxIlI75Uu0eRadjw6gXK3Iyq9eRzeNROo4tG6qUldQ\" /></form>\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/11/retweet\"><input type=\"submit\" value=\"Retweets (0)\" /><input type=\"hidden\" name=\"authenticity_token\" value=\"kzU6q3dVBLoe2NjdE0BxpJrjC1LkHmZuqNYQrTKDXB-NJM0lMedq9DyyE9JeTy1Y8FBBUlNbygQGYIj7F4-xRQ\" /></form>\n\n      <a href=\"/tweets/11/edit\">Edit</a>\n    </div>\n  </div>\n</turbo-frame></template></turbo-stream>"
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"prepend\" target=\"tweets\"><template><turbo-frame id=\"tweet_11\">\n  <div class=\"card card-body\">\n    <div>DEU BOM CARALHO</div>\n\n    <div class=\"mt-2\">\n      <form class=\"button_to\" method=\"post\" action=\"/tweets/11/like\"><input type=\"submit\" value=\"Like... (via streamed from tweets)
